@@ -48,8 +48,7 @@ Install the required Rasa dependencies:
 ```cmd
 pip install rasa==3.6.21 rasa-sdk==3.6.2 python-dotenv requests
 ```
-
-Install any additional project dependencies listed in `requirements.txt`, if provided.
+python -m pip install -r requirements-ui.txt
 
 ### 3. Configure API Keys
 
