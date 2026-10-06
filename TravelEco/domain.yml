@@ -1,0 +1,176 @@
+
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - plan_trip
+  - provide_origin
+  - provide_destination
+  - provide_dates
+  - provide_budget
+  - provide_sustainability
+  - provide_transport_mode
+  - ask_carbon
+  - ask_transport
+  - ask_flights
+  - ask_accommodation
+  - ask_events
+  - request_human
+  - out_of_scope
+  - nlu_fallback
+
+entities:
+  - origin
+  - destination
+  - start_date
+  - end_date
+  - budget
+  - sustainability_level
+  - transport_mode
+
+slots:
+  origin:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: origin
+
+  destination:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: destination
+
+  start_date:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: start_date
+
+  end_date:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: end_date
+
+  budget:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: budget
+
+  sustainability_level:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: sustainability_level
+
+  transport_mode:
+    type: categorical
+    values:
+      - rail
+      - bus
+      - car
+      - flight
+    mappings:
+      - type: from_entity
+        entity: transport_mode
+        intent: provide_transport_mode
+
+forms:
+  trip_form:
+    required_slots:
+      - origin
+      - destination
+      - start_date
+      - end_date
+      - budget
+      - sustainability_level
+
+responses:
+  utter_greet:
+    - text: "Hello! I am TravelEco Bot 🌱. I can help you plan a more environmentally responsible trip."
+
+  utter_start_trip:
+    - text: "Great! I will ask you a few questions so I can understand your trip."
+
+  utter_goodbye:
+    - text: "Goodbye! Safe and sustainable travels 🌱"
+
+  utter_acknowledge:
+    - text: "Great! How can I help you with your trip?"
+
+  utter_trip_intro:
+    - text: "Great! I will ask you a few questions so I can understand your trip."
+
+  utter_ask_origin:
+    - text: "Where will you be travelling from?"
+
+  utter_ask_destination:
+    - text: "Where would you like to travel?"
+
+  utter_ask_start_date:
+    - text: "When would you like your trip to begin?"
+
+  utter_ask_end_date:
+    - text: "When will you return?"
+
+  utter_ask_budget:
+    - text: "What is your approximate budget for the trip?"
+
+  utter_ask_sustainability_level:
+    - text: "How important is sustainability for this trip? You can say very important, balanced, or low priority."
+
+  utter_trip_details_received:
+    - text: |
+        Thanks! Here are the details I collected for your trip:
+
+        From: {origin}
+        Destination: {destination}
+        Start date: {start_date}
+        End date: {end_date}
+        Budget: €{budget}
+        Sustainability preference: {sustainability_level}
+
+  utter_out_of_scope:
+    - text: "I am mainly designed to help with sustainable travel planning. You can ask about transport, carbon emissions, flights, accommodation, cultural events, or trip recommendations."
+
+  utter_ask_rephrase:
+    - text: "I am sorry, I did not understand that. Could you rephrase your request?"
+
+  utter_human_handover:
+    - text: "I can help prepare your conversation for a human travel advisor."
+
+  utter_ask_transport_mode:
+    - text: "Which transport mode would you like to check? You can choose rail, bus, car, or flight."
+
+actions:
+  - validate_trip_form
+  - action_show_transport_options
+  - action_calculate_carbon
+  - action_search_flights
+  - action_search_hotels
+  - action_search_events
+  - action_recommend_transport
+  - action_human_handover
+  - action_default_fallback
+  - action_handle_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

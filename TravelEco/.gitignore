@@ -1,0 +1,34 @@
+
+# Python virtual environments
+.venv/
+.venv-ui/
+venv/
+env/
+
+# API keys and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python temporary files
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Rasa temporary files
+.rasa/
+*.log
+
+# Editor and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Ignore old Rasa models
+models/*
+
+# Keep the final trained model
+!models/20261006-162614-spicy-collie.tar.gz

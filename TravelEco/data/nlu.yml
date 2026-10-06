@@ -1,0 +1,586 @@
+version: "3.1"
+
+nlu:
+
+# ============================================================
+# GREET
+# ============================================================
+
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+    - hello there
+    - hi there
+    - hey there
+    - greetings
+    - hello TravelEco
+    - hi TravelEco
+
+
+# ============================================================
+# GOODBYE
+# ============================================================
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - thanks, bye
+    - have a nice day
+    - see you
+    - that is all for now
+    - talk to you later
+    - thanks for your help
+    - I am done
+    - that's everything
+    - bye for now
+
+
+# ============================================================
+# AFFIRM
+# ============================================================
+
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - yes please
+    - sure
+    - okay
+    - ok
+    - alright
+    - fine
+    - of course
+    - correct
+    - exactly
+    - sounds good
+    - that sounds good
+    - that works for me
+    - works for me
+    - let's do that
+    - go ahead
+    - absolutely
+    - definitely
+    - perfect
+    - great
+    - I agree
+
+
+# ============================================================
+# DENY
+# ============================================================
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - not really
+    - no thanks
+    - I don't want that
+    - that's not correct
+    - I would rather not
+    - no thank you
+    - not interested
+    - I don't think so
+    - that doesn't work for me
+    - I prefer something else
+
+
+# ============================================================
+# PLAN TRIP
+# ============================================================
+
+- intent: plan_trip
+  examples: |
+    - I want to plan a trip
+    - help me plan a sustainable trip
+    - I would like to organise a holiday
+    - can you help me plan my journey
+    - I want to travel sustainably
+    - help me find an environmentally friendly trip
+    - I need help planning my vacation
+    - plan an eco friendly trip for me
+    - I want to go on a sustainable holiday
+    - help me with my travel plans
+    - I need to travel
+    - I need to plan a trip
+    - I am planning a trip
+    - planning a trip
+    - I have to travel
+    - I want to go somewhere
+    - I need help with a trip
+    - I have travel plans
+    - help me travel
+    - I want to organise a journey
+    - can we plan my holiday
+    - I want help planning a vacation
+
+    - I want to travel from [Berlin](origin) to [Bengaluru](destination)
+    - I want to travel from [Berlin](origin) to [Amsterdam](destination)
+    - plan a trip from [Berlin](origin) to [Paris](destination)
+    - plan my journey from [Munich](origin) to [Rome](destination)
+    - I am travelling from [Hamburg](origin) to [Vienna](destination)
+    - I need to get from [Frankfurt](origin) to [Prague](destination)
+    - trip from [Berlin](origin) to [Bengaluru](destination)
+    - trip from [Berlin](origin) to [Brussels](destination)
+    - from [Berlin](origin) to [Brussels](destination)
+    - travel from [Cologne](origin) to [Amsterdam](destination)
+    - help me travel from [Munich](origin) to [Barcelona](destination)
+    - I want a trip from [Paris](origin) to [Copenhagen](destination)
+    - I am going from [Berlin](origin) to [Stockholm](destination)
+    - I need a journey from [Dresden](origin) to [Zurich](destination)
+    - I want to go from [Berlin](origin) to [Rome](destination)
+    - take me from [Berlin](origin) to [Amsterdam](destination)
+
+    - I want to travel from [Berlin](origin) to [Amsterdam](destination) from [7 November](start_date) to [10 November](end_date)
+    - plan a trip from [Berlin](origin) to [Paris](destination) from [12 December](start_date) until [16 December](end_date)
+    - I am going from [Munich](origin) to [Rome](destination) on [5 November](start_date) and returning [9 November](end_date)
+    - plan my journey from [Berlin](origin) to [Bengaluru](destination) from [26 November 2026](start_date) to [4 January 2027](end_date)
+    - I want a trip from [Hamburg](origin) to [Vienna](destination) between [3 December](start_date) and [8 December](end_date)
+
+    - plan a [700](budget) euro trip from [Berlin](origin) to [Amsterdam](destination)
+    - I have [900](budget) euros for a trip from [Berlin](origin) to [Rome](destination)
+    - I want to travel from [Munich](origin) to [Paris](destination) with a budget of [600](budget) euros
+    - organise a trip from [Berlin](origin) to [Brussels](destination) for around [500](budget) euros
+    - my budget is [800](budget) euros and I want to travel from [Berlin](origin) to [Prague](destination)
+
+    - I want a sustainable trip from [Berlin](origin) to [Amsterdam](destination)
+    - plan an eco friendly journey from [Munich](origin) to [Vienna](destination)
+    - I want the greenest trip from [Berlin](origin) to [Paris](destination)
+    - help me plan a low carbon trip from [Berlin](origin) to [Brussels](destination)
+
+    - I want to travel from [Berlin](origin) to [Amsterdam](destination) from [7 November](start_date) to [10 November](end_date) with a budget of [700](budget) euros
+    - plan a trip from [Berlin](origin) to [Bengaluru](destination) from [26 November 2026](start_date) to [4 January 2027](end_date) with a budget of [900](budget) euros
+    - I need a sustainable trip from [Munich](origin) to [Rome](destination) from [10 December](start_date) to [15 December](end_date) for around [650](budget) euros
+
+
+# ============================================================
+# PROVIDE ORIGIN
+# ============================================================
+
+- intent: provide_origin
+  examples: |
+    - I am travelling from [Berlin](origin)
+    - I will leave from [Munich](origin)
+    - my starting point is [Hamburg](origin)
+    - I am starting from [Frankfurt](origin)
+    - from [Berlin](origin)
+    - I live in [Berlin](origin)
+    - my journey starts in [Cologne](origin)
+    - I am departing from [Paris](origin)
+    - I am leaving from [Bengaluru](origin)
+    - my departure city is [Berlin](origin)
+    - start from [Munich](origin)
+    - departing from [Hamburg](origin)
+    - my trip begins in [Berlin](origin)
+    - I will travel from [Dresden](origin)
+    - starting in [Stuttgart](origin)
+    - my origin is [Berlin](origin)
+    - [Berlin](origin) is where I am starting
+    - I am currently in [Berlin](origin)
+
+
+# ============================================================
+# PROVIDE DESTINATION
+# ============================================================
+
+- intent: provide_destination
+  examples: |
+    - I want to go to [Amsterdam](destination)
+    - [Amsterdam](destination)
+    - I would like to visit [Copenhagen](destination)
+    - my destination is [Paris](destination)
+    - I am travelling to [Vienna](destination)
+    - take me to [Prague](destination)
+    - I want to visit [Barcelona](destination)
+    - I am thinking about [Stockholm](destination)
+    - [Rome](destination) would be nice
+    - I want to travel to [Zurich](destination)
+    - I want to go to [Bengaluru](destination)
+    - [Brussels](destination)
+    - my destination will be [Amsterdam](destination)
+    - I am heading to [Paris](destination)
+    - I would love to visit [Milan](destination)
+    - I want to visit [Oslo](destination)
+    - let's go to [Copenhagen](destination)
+    - destination is [Vienna](destination)
+    - I choose [Amsterdam](destination)
+    - I want to travel to [Budapest](destination)
+
+
+# ============================================================
+# PROVIDE DATES
+# ============================================================
+
+- intent: provide_dates
+  examples: |
+    - I want to travel from [15 October](start_date) to [18 October](end_date)
+    - from [10 November](start_date) until [14 November](end_date)
+    - my trip is from [5 December](start_date) to [9 December](end_date)
+    - [20 October](start_date) to [23 October](end_date)
+    - I am leaving on [1 November](start_date) and returning on [4 November](end_date)
+    - between [12 December](start_date) and [16 December](end_date)
+    - my travel dates are [3 January](start_date) to [7 January](end_date)
+    - I will travel from [8 March](start_date) until [12 March](end_date)
+    - I want to travel from [15 October 2026](start_date) to [18 October 2026](end_date)
+    - my trip is from [10 November 2026](start_date) until [14 November 2026](end_date)
+    - I am leaving on [5 December 2026](start_date) and returning on [9 December 2026](end_date)
+    - from [26 November 2026](start_date) to [4 January 2027](end_date)
+    - depart [7 November](start_date) and return [12 November](end_date)
+    - leaving [20 December](start_date) coming back [5 January](end_date)
+    - start on [4 November](start_date) and end on [8 November](end_date)
+    - my holiday runs from [1 June](start_date) to [7 June](end_date)
+    - travel dates are [11 August](start_date) until [17 August](end_date)
+    - [5 September](start_date) through [10 September](end_date)
+    - departure is [2 April](start_date) and return is [8 April](end_date)
+    - I want to leave [14 May](start_date) and return [19 May](end_date)
+
+
+# ============================================================
+# PROVIDE BUDGET
+# ============================================================
+
+- intent: provide_budget
+  examples: |
+    - my budget is [500](budget) euros
+    - I can spend around [400](budget) euros
+    - I have a budget of [600](budget) euros
+    - around [300](budget) euros
+    - maximum [750](budget) euros
+    - I would like to spend about [450](budget) euros
+    - my budget is [1000](budget)
+    - I can spend up to [800](budget) euros
+    - about [550](budget) euros
+    - [700](budget) euros
+    - my maximum budget is [900](budget)
+    - I have around [1200](budget) euros
+    - keep it under [650](budget) euros
+    - approximately [500](budget)
+    - I want to spend no more than [750](budget) euros
+    - [1000](budget) is my budget
+    - I can afford around [850](budget) euros
+    - budget is [400](budget)
+    - I have [600](budget) to spend
+    - somewhere around [950](budget) euros
+
+
+# ============================================================
+# PROVIDE SUSTAINABILITY
+# ============================================================
+
+- intent: provide_sustainability
+  examples: |
+    - sustainability is [very important](sustainability_level) to me
+    - I want a [high](sustainability_level) sustainability level
+    - sustainability is a [high](sustainability_level) priority
+    - I care [a lot](sustainability_level) about sustainability
+    - I want the most environmentally friendly options
+    - sustainability is [moderately important](sustainability_level)
+    - I want a [balanced](sustainability_level) option
+    - sustainability is a [medium](sustainability_level) priority
+    - I care [somewhat](sustainability_level) about emissions
+    - sustainability is a [low](sustainability_level) priority
+    - sustainability is [not very important](sustainability_level) to me
+    - I mainly care about price
+    - I prefer the cheapest option
+    - [very important](sustainability_level)
+    - [important](sustainability_level)
+    - [high](sustainability_level)
+    - [balanced](sustainability_level)
+    - [medium](sustainability_level)
+    - [low](sustainability_level)
+    - [low priority](sustainability_level)
+    - the environment matters a lot to me
+    - I want greener travel
+    - choose the greenest options
+    - keep emissions as low as possible
+    - I want something balanced between cost and sustainability
+    - price is more important to me
+    - affordability matters more than emissions
+
+
+# ============================================================
+# PROVIDE TRANSPORT MODE
+# ============================================================
+
+- intent: provide_transport_mode
+  examples: |
+    - I want to travel by [rail](transport_mode)
+    - I want to go by [train](transport_mode)
+    - [train](transport_mode)
+    - [rail](transport_mode)
+    - choose [train](transport_mode)
+    - I prefer the [train](transport_mode)
+    - take the [train](transport_mode)
+    - travelling by [train](transport_mode)
+    - I would like to use [rail](transport_mode)
+    - let's go by [train](transport_mode)
+    - train please
+    - rail please
+
+    - I want to travel by [bus](transport_mode)
+    - [bus](transport_mode)
+    - choose [bus](transport_mode)
+    - I prefer the [bus](transport_mode)
+    - take the [bus](transport_mode)
+    - travel by [coach](transport_mode)
+    - [coach](transport_mode)
+    - I would like to take a [coach](transport_mode)
+    - let's use the [bus](transport_mode)
+    - bus please
+
+    - I want to travel by [car](transport_mode)
+    - [car](transport_mode)
+    - choose [car](transport_mode)
+    - I prefer driving by [car](transport_mode)
+    - I will [drive](transport_mode)
+    - [driving](transport_mode)
+    - let's drive
+    - take the car
+    - car please
+    - I want to drive there
+
+    - I want to travel by [flight](transport_mode)
+    - I want to [fly](transport_mode)
+    - [flight](transport_mode)
+    - choose [flight](transport_mode)
+    - take a [plane](transport_mode)
+    - [plane](transport_mode)
+    - I prefer flying
+    - I want the flight option
+    - airplane please
+    - flying would be better
+    - flight please
+
+
+# ============================================================
+# TRANSPORT MODE SYNONYMS
+# ============================================================
+
+- synonym: rail
+  examples: |
+    - train
+    - railway
+    - rail travel
+    - train travel
+
+- synonym: bus
+  examples: |
+    - coach
+    - coach bus
+    - bus travel
+
+- synonym: car
+  examples: |
+    - drive
+    - driving
+    - automobile
+    - road trip
+
+- synonym: flight
+  examples: |
+    - plane
+    - airplane
+    - aeroplane
+    - fly
+    - flying
+    - air travel
+
+
+# ============================================================
+# ASK CARBON
+# ============================================================
+
+- intent: ask_carbon
+  examples: |
+    - what is the carbon footprint
+    - how much carbon does this trip produce
+    - show me the emissions
+    - which option has lower emissions
+    - how much CO2 will this journey produce
+    - compare the carbon footprint
+    - what are the estimated emissions
+    - which transport option is greener
+    - calculate my carbon emissions
+    - calculate the CO2 for this trip
+    - how much CO2 does flying produce
+    - what are the emissions for the train
+    - compare train and flight emissions
+    - which route has the smallest carbon footprint
+    - show me the lowest carbon option
+    - how green is this journey
+    - what is the most environmentally friendly route
+    - can you estimate my travel emissions
+    - compare CO2 between train and plane
+    - how can I reduce the emissions of this trip
+
+
+# ============================================================
+# ASK TRANSPORT
+# ============================================================
+
+- intent: ask_transport
+  examples: |
+    - show me transport options
+    - what is the best way to travel
+    - should I take the train or fly
+    - find sustainable transport
+    - show me low emission transport options
+    - what transport can I use
+    - compare travel options
+    - find me a train
+    - I prefer travelling by train
+    - show me train options
+    - can I take a train
+    - is there a bus
+    - compare train bus and flight
+    - what is the greenest way to get there
+    - how should I travel
+    - find public transport
+    - show me rail options
+    - what is the fastest transport
+    - what is the cheapest transport
+    - what is the most sustainable transport
+    - can you compare train and plane
+    - I would rather avoid flying
+    - what transport modes are available
+    - is driving an option
+    - show me bus train and flight choices
+    - compare rail bus car and flight
+    - what are my travel options
+
+
+# ============================================================
+# ASK FLIGHTS
+# ============================================================
+
+- intent: ask_flights
+  examples: |
+    - show me flights
+    - find me a flight
+    - search for flights
+    - what flights are available
+    - show me flight options
+    - find flights for my trip
+    - I want to see flights
+    - can you find a flight
+    - show available flights
+    - what are the flight prices
+    - find cheap flights
+    - search flights from my origin to destination
+    - show me live flights
+    - find available flights for these dates
+    - what airlines can I take
+    - how much are the flights
+    - find flights within my budget
+    - search flight prices
+
+
+# ============================================================
+# ASK ACCOMMODATION
+# ============================================================
+
+- intent: ask_accommodation
+  examples: |
+    - find me sustainable accommodation
+    - show me eco friendly hotels
+    - where should I stay
+    - find a green hotel
+    - I need accommodation
+    - show me environmentally friendly hotels
+    - find me a hotel
+    - what sustainable places can I stay at
+    - suggest eco friendly accommodation
+    - show me green hotels
+    - I need a sustainable place to stay
+    - recommend an eco hotel
+    - show me affordable eco hotels
+    - find accommodation near public transport
+    - I want a sustainable hotel
+    - suggest environmentally responsible accommodation
+    - show me hotels with good sustainability practices
+    - where can I stay sustainably
+    - recommend a green hostel
+    - find an eco friendly hostel
+    - show me live hotel options
+    - search hotels for my trip
+    - find hotels within my budget
+    - show available accommodation
+
+
+# ============================================================
+# REQUEST HUMAN
+# ============================================================
+
+- intent: request_human
+  examples: |
+    - I want to speak to a human
+    - connect me to a travel advisor
+    - I need help from a person
+    - can I speak with an advisor
+    - transfer me to a human
+    - I want a human travel consultant
+    - please connect me with an advisor
+    - I need human help
+    - need human assistance
+    - human support
+    - human help
+    - I want to talk to a human
+    - let me speak to someone
+
+
+# ============================================================
+# CULTURAL EVENTS
+# ============================================================
+
+- intent: ask_events
+  examples: |
+    - show me cultural events
+    - cultural events near my destination
+    - what festivals are happening during my trip
+    - find local cultural activities
+    - any concerts or exhibitions in the city
+    - show local events while I'm there
+    - what cultural experiences can I explore
+    - I would like to see local festivals
+    - search for events during my holiday
+    - show festivals and museums
+    - are there any performances during my visit
+    - I'd like to explore cultural events
+    - recommend cultural activities
+    - events happening near my hotel
+    - show me local arts and music events
+    - what is happening in town on my travel dates
+    - I want to discover local cultural experiences
+    - can you find exhibitions for my trip
+
+
+# ============================================================
+# OUT OF SCOPE
+# ============================================================
+
+- intent: out_of_scope
+  examples: |
+    - tell me a joke
+    - what is the weather on Mars
+    - help me with my homework
+    - who won the football match
+    - write me a poem
+    - what is the meaning of life
+    - can you cook dinner for me
+    - tell me about cryptocurrency
+    - solve this mathematics problem
+    - write an essay for me
+    - tell me about politics
+    - help me code a website
+    - what is the stock market doing
+    - recommend a video game
+    - write a song
+    - tell me a funny story

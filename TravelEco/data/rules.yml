@@ -1,0 +1,68 @@
+version: "3.1"
+
+rules:
+  - rule: Activate trip form
+    steps:
+      - intent: plan_trip
+      - action: utter_start_trip
+      - action: trip_form
+      - active_loop: trip_form
+
+  - rule: Submit trip form
+    condition:
+      - active_loop: trip_form
+    steps:
+      - action: trip_form
+      - active_loop: null
+      - action: utter_trip_details_received
+      - action: action_show_transport_options
+
+  - rule: Calculate carbon for selected transport
+    steps:
+      - intent: provide_transport_mode
+      - action: action_calculate_carbon
+
+  - rule: Calculate carbon
+    steps:
+      - intent: ask_carbon
+      - action: action_calculate_carbon
+
+  - rule: Recommend transport
+    steps:
+      - intent: ask_transport
+      - action: action_recommend_transport
+
+  - rule: Search flights
+    steps:
+      - intent: ask_flights
+      - action: action_search_flights
+
+  - rule: Search accommodation
+    steps:
+      - intent: ask_accommodation
+      - action: action_search_hotels
+
+  - rule: Search cultural events
+    steps:
+      - intent: ask_events
+      - action: action_search_events
+
+  - rule: Human handover
+    steps:
+      - intent: request_human
+      - action: action_human_handover
+
+  - rule: Handle out of scope
+    steps:
+      - intent: out_of_scope
+      - action: action_handle_fallback
+
+  - rule: Handle NLU fallback
+    steps:
+      - intent: nlu_fallback
+      - action: action_handle_fallback
+
+  - rule: Acknowledge
+    steps:
+      - intent: affirm
+      - action: utter_acknowledge
